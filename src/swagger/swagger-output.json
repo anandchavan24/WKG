@@ -1,0 +1,148 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "WKG API",
+        "version": "2.0.0",
+        "description": "ITS API Swagger"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:4000"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "x-auth-token",
+                "scheme": "bearer",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+    "paths": {
+        "/user/login": {
+            "post": {
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "example": "any"
+                                },
+                                "password": {
+                                    "example": "any"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Parents": {
+            "type": "object",
+            "properties": {
+                "father": {
+                    "type": "string",
+                    "example": "Simon Doe"
+                },
+                "mother": {
+                    "type": "string",
+                    "example": "Marie Doe"
+                }
+            }
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "Jhon Doe"
+                },
+                "age": {
+                    "type": "number",
+                    "example": 29
+                },
+                "parents": {
+                    "$ref": "#/definitions/Parents"
+                },
+                "diplomas": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "school": {
+                                "type": "string",
+                                "example": "XYZ University"
+                            },
+                            "year": {
+                                "type": "number",
+                                "example": 2020
+                            },
+                            "completed": {
+                                "type": "boolean",
+                                "example": true
+                            },
+                            "internship": {
+                                "type": "object",
+                                "properties": {
+                                    "hours": {
+                                        "type": "number",
+                                        "example": 290
+                                    },
+                                    "location": {
+                                        "type": "string",
+                                        "example": "XYZ Company"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "AddUser": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "Jhon Doe"
+                },
+                "age": {
+                    "type": "number",
+                    "example": 29
+                },
+                "about": {
+                    "type": "string",
+                    "example": ""
+                }
+            },
+            "required": [
+                "name",
+                "age"
+            ]
+        }
+    }
+}

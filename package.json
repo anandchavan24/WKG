@@ -1,19 +1,47 @@
 {
-  "name": "wkg",
+  "name": "nodesql",
   "version": "1.0.0",
-  "description": "This is wkg project",
-  "main": "app.js",
+  "description": "This is node + mysql project",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node src/app.js dev port=3000",
+    "test": "jest",
+    "swagger-autogen": "node swagger/swagger.js dev port=3000"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anandchavan24/WKG.git"
+    "url": "git+https://github.com/anandchavan24/NodeSql.git"
   },
-  "author": "",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "@types/mssql": "^8.1.1",
+    "axios": "^1.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "http-status": "^1.5.3",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mongoose": "^6.6.4",
+    "mssql": "^9.0.1",
+    "mysql2": "^2.3.3",
+    "node-mssql": "0.0.1",
+    "otp-generator": "^4.0.0",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.5.0",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.5.0",
+    "jest": "^29.1.2",
+    "nodemon": "^2.0.20",
+    "swagger-autogen": "^2.22.0",
+    "uuid": "^9.0.0"
+  },
+  "author": "Anand Chavan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/anandchavan24/WKG/issues"
+    "url": "https://github.com/anandchavan24/NodeSql/issues"
   },
-  "homepage": "https://github.com/anandchavan24/WKG#readme"
+  "homepage": "https://github.com/anandchavan24/NodeSql#readme"
 }
